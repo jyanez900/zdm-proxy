@@ -61,6 +61,11 @@ spec:
             secretKeyRef:
               name: zdmproxy
               key: target_password
+        - name: ZDM_TARGET_CONTACT_POINTS
+          valueFrom:
+            secretKeyRef:
+              name: zdmproxy
+              key: target_contact_points
         volumeMounts:
         - name: scb
           mountPath: "/tmp/scb"
