@@ -29,8 +29,8 @@ spec:
         - configMapRef:
             name: {{ include "zdm.fullname" . }}
         env:
-        - name: ZDM_TARGET_SECURE_CONNECT_BUNDLE_PATH
-          value: /tmp/scb/target.zip
+        # - name: ZDM_TARGET_SECURE_CONNECT_BUNDLE_PATH
+          # value: /tmp/scb/target.zip
         - name: ZDM_ORIGIN_CONTACT_POINTS
           valueFrom:
             secretKeyRef:
@@ -66,14 +66,14 @@ spec:
             secretKeyRef:
               name: zdmproxy
               key: target_contact_points
-        volumeMounts:
-        - name: scb
-          mountPath: "/tmp/scb"
-          readOnly: true
-      volumes:
-      - name: scb
-        secret:
-          secretName: zdmproxy-scb
-          items:
-          - key: secure-connect-target.zip
-            path: target.zip
+      #   volumeMounts:
+      #   - name: scb
+      #     mountPath: "/tmp/scb"
+      #     readOnly: true
+      # volumes:
+      # - name: scb
+      #   secret:
+      #     secretName: zdmproxy-scb
+      #     items:
+      #     - key: secure-connect-target.zip
+      #       path: target.zip
