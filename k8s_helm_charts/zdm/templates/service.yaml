@@ -19,7 +19,7 @@ spec:
       targetPort: 9042
       protocol: TCP
       name: cql
-    - port: {{ $.Values.service.port | int }}
+    - port: {{ $.Values.service.metrics.port | int }}
       targetPort: 14001
       protocol: TCP
       name: metrics
